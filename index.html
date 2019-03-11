@@ -22,7 +22,7 @@
         
       </form>
 
-      <form style="font-weight:bold;font-size:40px;color:white;background-color:green;width:450px;padding:10px;margin-top:10px;margin-bottom:10px"> 
+      <form name=FA style="font-weight:bold;font-size:40px;color:white;background-color:green;width:450px;padding:10px;margin-top:10px;margin-bottom:10px"> 
           A = <input type="text" id="A" readonly="readonly" style="border-top:0;border-bottom:0;border-left:0;border-right:0;width:200px;font-weight:bold;font-size:40px;color:white;background-color:green">
       </form>
       <form style="font-weight:bold;font-size:40px;color:black;padding:10px;margin-top:10px;margin-bottom:10px">
@@ -44,12 +44,11 @@
           var FormId,PTotal,TTotal
           function check_int(FormId) {
               if (FormId == "P1") {
-
-                  alert('test')
                   if (isNaN(document.F1.P1.value)) {
                       alert("請輸入數字");
                       //document.F1.P1.focus();
-                      $('input[id="P1"]').val('');
+                      document.F1.P1.value=''
+                      //$('input[id="P1"]').val('');
                   }
                   else {
                       if (document.F1.P1.value.length == 1) { //輸入值只有1個欄位，前面補1個0
@@ -59,12 +58,12 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
           }
               else if (FormId == "P2") {
                   if (isNaN(document.F1.P2.value)) {
                       alert("請輸入數字");
-                      $('input[id="P2"]').val('');
+                      document.F1.P2.value = ''
                   }
                   else {
                       if (document.F1.P2.value.length == 1) { //輸入值只有1個欄位，前面補1個0
@@ -74,12 +73,12 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
               }
               else if (FormId == "P3") {
                   if (isNaN(document.F1.P3.value)) {
                       alert("請輸入數字");
-                      $('input[id="P3"]').val('');
+                      document.F1.P3.value = ''
                   }
                   else {
                       if (document.F1.P3.value.length == 1) { //輸入值只有1個欄位，前面補1個0
@@ -89,12 +88,12 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
               }
               else if (FormId == "P4") {
                   if (isNaN(document.F1.P4.value)) {
                       alert("請輸入數字");
-                      $('input[id="P4"]').val('');
+                      document.F1.P4.value = ''
                   }
                   else {
                       if (document.F1.P4.value.length == 1) { //輸入值只有1個欄位，前面補1個0
@@ -104,7 +103,7 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
               }
 
               else if (FormId == "T1") {
@@ -120,7 +119,7 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
               }
               else if (FormId == "T2") {
                   if (isNaN(document.F2.T2.value)) {
@@ -135,7 +134,7 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
               }
               else if (FormId == "T3") {
                   if (isNaN(document.F2.T3.value)) {
@@ -150,7 +149,7 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
               }
               else if (FormId == "T4") {
                   if (isNaN(document.F2.T4.value)) {
@@ -165,7 +164,7 @@
                   //算出A的欄位
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
-                  $('input[id="A"]').val(parseInt(PTotal) + parseInt(TTotal));
+                  document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
               }
           }
 
