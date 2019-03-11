@@ -25,16 +25,16 @@
       <form name=FA style="font-weight:bold;font-size:40px;color:white;background-color:green;width:450px;padding:10px;margin-top:10px;margin-bottom:10px"> 
           A = <input type="text" id="A" readonly="readonly" style="border-top:0;border-bottom:0;border-left:0;border-right:0;width:200px;font-weight:bold;font-size:40px;color:white;background-color:green">
       </form>
-      <form style="font-weight:bold;font-size:40px;color:black;padding:10px;margin-top:10px;margin-bottom:10px">
+      <form name=FB style="font-weight:bold;font-size:40px;color:black;padding:10px;margin-top:10px;margin-bottom:10px">
           B = <input onkeyup="value=value.replace(/[^\d]/g,'')" type="text" id="B" style="width:120px;font-weight:bold;font-size:40px;color:block"> 請輸入總票數
       </form>
-      <form style="font-weight:bold;font-size:40px;color:white;background-color:purple;width:450px;padding:10px;margin-top:10px;margin-bottom:10px"> 
+      <form name=FC style="font-weight:bold;font-size:40px;color:white;background-color:purple;width:450px;padding:10px;margin-top:10px;margin-bottom:10px"> 
           C = <input type="text" id="C" readonly="readonly"style="border-top:0;border-bottom:0;border-left:0;border-right:0;width:200px;font-weight:bold;font-size:40px;color:white;background-color:purple">
       </form>
-      <form style="font-weight:bold;font-size:40px;color:black;background-color:orange;width:450px;padding:10px;margin-top:10px;margin-bottom:10px">
+      <form name=FD style="font-weight:bold;font-size:40px;color:black;background-color:orange;width:450px;padding:10px;margin-top:10px;margin-bottom:10px">
           D = <input type="text" id="D" readonly="readonly"style="border-top:0;border-bottom:0;border-left:0;border-right:0;width:200px;font-weight:bold;font-size:40px;color:block;background-color:orange">
       </form>
-      <form style="font-weight:bold;font-size:40px;color:white;background-color:red;width:450px;padding:10px;margin-top:10px;margin-bottom:10px">
+      <form name=FJackpot style="font-weight:bold;font-size:40px;color:white;background-color:red;width:450px;padding:10px;margin-top:10px;margin-bottom:10px">
           Jackpot = <input type="text" id="Jackpot" readonly="readonly"style="border-top:0;border-bottom:0;border-left:0;border-right:0;width:200px;font-weight:bold;font-size:40px;color:white;background-color:red">
       </form>
 
@@ -59,7 +59,20 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
-          }
+
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
+
+
+              }
               else if (FormId == "P2") {
                   if (isNaN(document.F1.P2.value)) {
                       alert("請輸入數字");
@@ -74,6 +87,17 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
+
               }
               else if (FormId == "P3") {
                   if (isNaN(document.F1.P3.value)) {
@@ -89,6 +113,16 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
               }
               else if (FormId == "P4") {
                   if (isNaN(document.F1.P4.value)) {
@@ -104,6 +138,16 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
               }
 
               else if (FormId == "T1") {
@@ -120,6 +164,16 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
               }
               else if (FormId == "T2") {
                   if (isNaN(document.F2.T2.value)) {
@@ -135,6 +189,16 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
               }
               else if (FormId == "T3") {
                   if (isNaN(document.F2.T3.value)) {
@@ -150,6 +214,16 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
               }
               else if (FormId == "T4") {
                   if (isNaN(document.F2.T4.value)) {
@@ -165,6 +239,16 @@
                   PTotal = (document.F1.P1.value + document.F1.P2.value + document.F1.P3.value + document.F1.P4.value)
                   TTotal = (document.F2.T1.value + document.F2.T2.value + document.F2.T3.value + document.F2.T4.value)
                   document.FA.A.value = parseInt(PTotal) + parseInt(TTotal);
+                  if (document.FB.B.value > 0) {
+                      document.FC.C.value = (Math.floor(document.FA.A.value / document.FB.B.value));
+                      document.FD.D.value = (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value);
+                      document.FJackpot.Jackpot.value = (document.FA.A.value - (Math.floor(document.FA.A.value / document.FB.B.value) * document.FB.B.value));
+                  }
+                  else {
+                      document.FC.C.value = ''
+                      document.FD.D.value = ''
+                      document.FJackpot.Jackpot.value = ''
+                  }
               }
           }
 
